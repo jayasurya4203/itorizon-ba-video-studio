@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BA Video Task Studio · ITOrizon screening prep</title>
+<meta name="description" content="A local prep workspace for the ITOrizon Business Analyst video submission: choose a topic, shape talking points, practise to time, record a take, and review it against the brief.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F5B4C'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23F7F2E7' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 11a9 9 0 1 1 3 6.7"/><path d="M3 5v6h6"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="4"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 8V3h10v5"/><rect x="4" y="8" width="16" height="8" rx="2"/><path d="M7 16h10v5H7z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-full" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+</svg>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">BA</span>
+      <div>
+        <strong>Video Task Studio</strong>
+        <span class="brand-sub">ITOrizon · screening prep</span>
+      </div>
+    </div>
+
+    <nav class="stepnav" aria-label="Workspace steps">
+      <button class="nav-item is-active" data-nav="brief">
+        <span class="nav-num">00</span><span class="nav-label">The brief</span><span class="nav-dot" data-dot="brief"></span>
+      </button>
+      <button class="nav-item" data-nav="topic">
+        <span class="nav-num">01</span><span class="nav-label">Choose a topic</span><span class="nav-dot" data-dot="topic"></span>
+      </button>
+      <button class="nav-item" data-nav="prepare">
+        <span class="nav-num">02</span><span class="nav-label">Shape the points</span><span class="nav-dot" data-dot="prepare"></span>
+      </button>
+      <button class="nav-item" data-nav="practice">
+        <span class="nav-num">03</span><span class="nav-label">Practise to time</span><span class="nav-dot" data-dot="practice"></span>
+      </button>
+      <button class="nav-item" data-nav="record">
+        <span class="nav-num">04</span><span class="nav-label">Record the take</span><span class="nav-dot" data-dot="record"></span>
+      </button>
+      <button class="nav-item" data-nav="review">
+        <span class="nav-num">05</span><span class="nav-label">Review &amp; submit</span><span class="nav-dot" data-dot="review"></span>
+      </button>
+    </nav>
+
+    <div class="ready-card">
+      <div class="ready-head"><span>Readiness</span><strong id="readyPct">0%</strong></div>
+      <div class="ready-track"><div class="ready-fill" id="readyFill"></div></div>
+      <p id="readyNext">Start by choosing a topic.</p>
+    </div>
+
+    <div class="sidebar-foot">
+      <p><span class="save-dot" aria-hidden="true"></span><span id="saveState">Saved in this browser</span></p>
+      <p>Independent practice tool. Not affiliated with ITOrizon. Your notes and video stay on this device.</p>
+    </div>
+  </aside>
+
+  <main class="main">
+    <!-- THE BRIEF -->
+    <section class="step is-active" data-step="brief" id="step-brief">
+      <header class="step-head">
+        <p class="eyebrow">Screening task · Business Analyst</p>
+        <h1 class="step-title">Make a two-minute case for how you think.</h1>
+        <p class="lede">This is a communication check, not a technical exam. Pick one topic, organise your view, practise to time, record a clean take, and review it against the brief before you submit.</p>
+        <div class="head-actions">
+          <button class="btn btn-primary" data-goto="topic">Choose a topic <svg class="icon"><use href="#i-arrow"></use></svg></button>
+          <button class="btn btn-ghost" data-goto="brief-more">See what they assess</button>
+        </div>
+      </header>
+
+      <div class="meta-strip">
+        <div><span>Length</span><strong>2–3 minutes</strong></div>
+        <div><span>Format</span><strong>MP4 preferred</strong></div>
+        <div><span>Camera</span><strong>On, face visible</strong></div>
+        <div><span>Delivery</span><strong>No script reading</strong></div>
+      </div>
+
+      <div class="section-label" id="brief-more">What they are actually assessing</div>
+      <div class="assess-grid">
+        <article class="card assess">
+          <span class="assess-num">01</span>
+          <h3>Clarity</h3>
+          <p>Simple English, complete sentences, a pace the listener can follow without effort.</p>
+        </article>
+        <article class="card assess">
+          <span class="assess-num">02</span>
+          <h3>Structure</h3>
+          <p>A beginning, two or three developed points, and a conclusion that lands somewhere.</p>
+        </article>
+        <article class="card assess">
+          <span class="assess-num">03</span>
+          <h3>Judgement</h3>
+          <p>A real opinion supported by an example — not a list of definitions or slogans.</p>
+        </article>
+        <article class="card assess">
+          <span class="assess-num">04</span>
+          <h3>Presence</h3>
+          <p>Eye contact, natural expression, appropriate setting and attire. No filters or effects.</p>
+        </article>
+      </div>
+
+      <div class="brief-grid">
+        <div class="card brief-card">
+          <div class="section-label">Suggested structure</div>
+          <table class="structure-table">
+            <thead><tr><th>Time</th><th>Section</th><th>What to cover</th></tr></thead>
+            <tbody>
+              <tr><td>0:00–0:20</td><td>Introduction</td><td>Who you are and the topic you chose.</td></tr>
+              <tr><td>0:20–0:50</td><td>Overview</td><td>What the topic means and why it matters now.</td></tr>
+              <tr><td>0:50–2:00</td><td>Main discussion</td><td>Two or three points, observations, or trade-offs.</td></tr>
+              <tr><td>2:00–2:30</td><td>Example &amp; opinion</td><td>One practical example and your personal view.</td></tr>
+              <tr><td>2:30–3:00</td><td>Conclusion</td><td>Summarise and end with a clear takeaway.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card brief-card">
+          <div class="section-label">Non-negotiables</div>
+          <ul class="rules-list">
+            <li>2–3 minute individual video, you visible on camera.</li>
+            <li>Speak to the camera, not to notes or a phone screen.</li>
+            <li>Your own thoughts, with at least one relevant example.</li>
+            <li>Minimal editing; no background music, filters, or effects.</li>
+            <li>Quiet, well-lit room; audible voice; professional attire.</li>
+            <li>Submit through the official candidate form.</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="card accordion">
+        <summary>Ten mistakes to avoid<span class="acc-icon" aria-hidden="true"></span></summary>
+        <ol class="mistakes">
+          <li>Running past three minutes.</li>
+          <li>Reading a fully memorised script.</li>
+          <li>Speaking about a topic you do not actually understand.</li>
+          <li>Repeating the same point in different words.</li>
+          <li>Giving an opinion with no supporting example.</li>
+          <li>Speaking too fast or too softly.</li>
+          <li>Looking away from the camera continuously.</li>
+          <li>Adding music, filters, or unnecessary edits.</li>
+          <li>Starting without introducing the topic.</li>
+          <li>Ending abruptly without a takeaway.</li>
+        </ol>
+      </details>
+
+      <details class="card accordion">
+        <summary>Delivery tips that matter most<span class="acc-icon" aria-hidden="true"></span></summary>
+        <div class="tips-grid">
+          <div><h4>Voice</h4><p>Use complete sentences at a conversational pace. Pause between ideas instead of filling space with “um”.</p></div>
+          <div><h4>Camera</h4><p>Lens at eye level, light in front of you, clean background. Look into the lens, not at your own image.</p></div>
+          <div><h4>Thinking</h4><p>Present a sequence, not a pile. Where possible, acknowledge the other side before giving your view.</p></div>
+          <div><h4>Professionalism</h4><p>Neat attire, quiet room, phone on silent. One take is better than ten highly edited ones.</p></div>
+        </div>
+      </details>
+
+      <footer class="step-foot">
+        <span>Everything here stays in your browser. Nothing is uploaded.</span>
+        <button class="btn btn-primary" data-goto="topic">Start with a topic <svg class="icon"><use href="#i-arrow"></use></svg></button>
+      </footer>
+    </section>
+
+    <!-- TOPIC -->
+    <section class="step" data-step="topic" id="step-topic">
+      <header class="step-head">
+        <p class="eyebrow">Step 01 · Choose your subject</p>
+        <h1 class="step-title">Pick a subject you can defend without a script.</h1>
+        <p class="lede">Twenty options across five categories. Choose the one where you have a real observation or example, not the one that sounds most impressive. You will be speaking for two to three minutes.</p>
+      </header>
+
+      <div class="toolbar">
+        <label class="search">
+          <svg class="icon"><use href="#i-search"></use></svg>
+          <input id="topicSearch" type="search" placeholder="Search topics — AI, salary, data, teamwork…" autocomplete="off">
+        </label>
+        <div class="filters" id="topicFilters" role="group" aria-label="Filter topics by category">
+          <button class="chip is-active" data-cat="all">All 20</button>
+          <button class="chip" data-cat="A">A · AI &amp; tech</button>
+          <button class="chip" data-cat="B">B · Education &amp; career</button>
+          <button class="chip" data-cat="C">C · Workplace</button>
+          <button class="chip" data-cat="D">D · Current affairs</button>
+          <button class="chip" data-cat="E">E · Business &amp; analysis</button>
+        </div>
+      </div>
+
+      <div class="topic-grid" id="topicGrid"></div>
+      <p class="empty-note" id="topicEmpty" hidden>No topics match that search. Try a broader keyword.</p>
+
+      <section class="card topic-detail" id="topicDetail" hidden></section>
+
+      <div class="selection-dock" id="selectionDock" hidden>
+        <div class="dock-inner">
+          <div class="dock-text">
+            <span class="dock-label">Selected topic</span>
+            <strong class="dock-title" id="dockTitle"></strong>
+          </div>
+          <button class="btn btn-primary" data-goto="prepare">Build talking points <svg class="icon"><use href="#i-arrow"></use></svg></button>
+        </div>
+      </div>
+
+      <footer class="step-foot">
+        <button class="btn btn-quiet" data-goto="brief">Back to the brief</button>
+        <button class="btn btn-primary" data-goto="prepare">Build talking points <svg class="icon"><use href="#i-arrow"></use></svg></button>
+      </footer>
+    </section>
+
+    <!-- PREPARE -->
+    <section class="step" data-step="prepare" id="step-prepare">
+      <header class="step-head">
+        <p class="eyebrow">Step 02 · Build the argument</p>
+        <h1 class="step-title">Write the shape, not the script.</h1>
+        <p class="lede">One or two lines per idea. The practice view turns these into cue cards you glance at — not a script you read. A natural pace is roughly 130 words a minute.</p>
+        <div class="head-actions">
+          <label class="inline-select">Target length
+            <select id="targetSelect">
+              <option value="120">2:00</option>
+              <option value="150" selected>2:30</option>
+              <option value="180">3:00</option>
+            </select>
+          </label>
+          <button class="btn btn-primary" data-goto="practice">Open practice view <svg class="icon"><use href="#i-arrow"></use></svg></button>
+        </div>
+      </header>
+
+      <div class="banner" id="topicBanner">
+        <svg class="icon"><use href="#i-info"></use></svg>
+        <span>No topic selected yet. <button class="link" data-goto="topic">Pick one from the brief</button> — anything you write here is kept.</span>
+      </div>
+
+      <div class="prep-layout">
+        <div class="prep-form" id="prepForm">
+          <article class="card prep-block">
+            <header class="prep-head">
+              <span class="time-range" data-range="intro">0:00–0:20</span>
+              <div>
+                <h3>Introduction</h3>
+                <p>Name, role in one line, topic, and a hook that earns the next twenty seconds.</p>
+              </div>
+            </header>
+            <label class="field">
+              <span class="field-label">Opening lines</span>
+              <textarea data-field="intro" rows="3" placeholder="Hi, I’m … I work as … Today I want to talk about …, because …"></textarea>
+              <span class="field-meta"><span data-count="intro">0 words</span><span data-est="intro">≈ 0:00</span></span>
+            </label>
+          </article>
+
+          <article class="card prep-block">
+            <header class="prep-head">
+              <span class="time-range" data-range="overview">0:20–0:50</span>
+              <div>
+                <h3>Topic overview</h3>
+                <p>What the topic means, and why it is relevant right now. Set the frame before arguing.</p>
+              </div>
+            </header>
+            <label class="field">
+              <span class="field-label">Context in a few lines</span>
+              <textarea data-field="overview" rows="3" placeholder="This matters because … Most people experience it as …"></textarea>
+              <span class="field-meta"><span data-count="overview">0 words</span><span data-est="overview">≈ 0:00</span></span>
+            </label>
+          </article>
+
+          <article class="card prep-block">
+            <header class="prep-head">
+              <span class="time-range" data-range="main">0:50–2:00</span>
+              <div>
+                <h3>Main discussion</h3>
+                <p>Two or three developed points. Aim for reason → implication, not a list.</p>
+              </div>
+            </header>
+            <label class="field">
+              <span class="field-label">Point 1 · the strongest reason</span>
+              <textarea data-field="point1" rows="2" placeholder="The clearest reason is …"></textarea>
+              <span class="field-meta"><span data-count="point1">0 words</span><span data-est="point1">≈ 0:00</span></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Point 2 · a trade-off or counterpoint</span>
+              <textarea data-field="point2" rows="2" placeholder="On the other hand, …"></textarea>
+              <span class="field-meta"><span data-count="point2">0 words</span><span data-est="point2">≈ 0:00</span></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Point 3 · what it means in practice</span>
+              <textarea data-field="point3" rows="2" placeholder="What this means for students, teams, or businesses is …"></textarea>
+              <span class="field-meta"><span data-count="point3">0 words</span><span data-est="point3">≈ 0:00</span></span>
+            </label>
+          </article>
+
+          <article class="card prep-block">
+            <header class="prep-head">
+              <span class="time-range" data-range="example">2:00–2:30</span>
+              <div>
+                <h3>Example &amp; opinion</h3>
+                <p>A concrete moment makes the argument credible. Then state your position plainly.</p>
+              </div>
+            </header>
+            <label class="field">
+              <span class="field-label">Example or real experience</span>
+              <textarea data-field="example" rows="3" placeholder="For example, during my internship / in my own studies …"></textarea>
+              <span class="field-meta"><span data-count="example">0 words</span><span data-est="example">≈ 0:00</span></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Your opinion</span>
+              <textarea data-field="opinion" rows="2" placeholder="Personally, I believe … because …"></textarea>
+              <span class="field-meta"><span data-count="opinion">0 words</span><span data-est="opinion">≈ 0:00</span></span>
+            </label>
+          </article>
+
+          <article class="card prep-block">
+            <header class="prep-head">
+              <span class="time-range" data-range="conclusion">2:30–3:00</span>
+              <div>
+                <h3>Conclusion</h3>
+                <p>Bring it together in one sentence, then leave a clear takeaway. Do not introduce new points.</p>
+              </div>
+            </header>
+            <label class="field">
+              <span class="field-label">Closing lines</span>
+              <textarea data-field="conclusion" rows="3" placeholder="To sum up, … The takeaway for me is …"></textarea>
+              <span class="field-meta"><span data-count="conclusion">0 words</span><span data-est="conclusion">≈ 0:00</span></span>
+            </label>
+          </article>
+        </div>
+
+        <aside class="prep-aside">
+          <div class="card timeline-card">
+            <div class="section-label">Timeline estimate</div>
+            <div class="timeline-list" id="timelineList"></div>
+            <div class="timeline-total"><span>Total estimate</span><strong id="totalEstimate">0:00</strong></div>
+            <p class="mini" id="totalVerdict">Fill a few lines to see your timing.</p>
+          </div>
+          <div class="card topic-notes" id="topicNotes"></div>
+        </aside>
+      </div>
+
+      <footer class="step-foot">
+        <button class="btn btn-quiet" data-goto="topic">Change topic</button>
+        <button class="btn btn-primary" data-goto="practice">Practise the shape <svg class="icon"><use href="#i-arrow"></use></svg></button>
+      </footer>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="step" data-step="practice" id="step-practice">
+      <header class="step-head">
+        <p class="eyebrow">Step 03 · Rehearse</p>
+        <h1 class="step-title">Say it out loud, at the pace you will record.</h1>
+        <p class="lede">Start the timer and speak from the cue cards. The highlight follows the section you should be in. If a line does not survive being spoken, simplify it now.</p>
+        <div class="head-actions">
+          <label class="switch"><input type="checkbox" id="autoFollow" checked> Follow the timer</label>
+          <button class="btn btn-primary" data-goto="record">Ready to record <svg class="icon"><use href="#i-arrow"></use></svg></button>
+        </div>
+      </header>
+
+      <div class="stage" id="practiceStage">
+        <div class="stage-top">
+          <div class="timer-block">
+            <div class="timer-time"><span id="practiceTime">0:00</span><span class="timer-target" id="practiceTarget">/ 2:30</span></div>
+            <div class="timer-track">
+              <div class="timer-fill" id="practiceFill"></div>
+              <div class="timer-ticks" id="practiceTicks"></div>
+            </div>
+            <div class="timer-now"><strong id="practiceSegment">Introduction</strong><span id="practiceNext">next: Topic overview at 0:20</span></div>
+          </div>
+          <div class="stage-actions">
+            <button class="btn btn-primary" id="startPauseBtn"><svg class="icon"><use href="#i-play"></use></svg><span>Start</span></button>
+            <button class="btn btn-ghost" id="resetBtn" title="Reset timer (R)"><svg class="icon"><use href="#i-reset"></use></svg><span class="sr-only">Reset</span></button>
+            <button class="btn btn-ghost" id="fullBtn" title="Full screen (F)"><svg class="icon"><use href="#i-full"></use></svg><span class="sr-only">Full screen</span></button>
+          </div>
+        </div>
+        <div class="cue-list" id="practiceCards"></div>
+        <p class="stage-note" id="stageNote">Space start/pause · R reset · F full screen. The timer stops at your target length; the task limit is 3:00.</p>
+      </div>
+
+      <footer class="step-foot">
+        <button class="btn btn-quiet" data-goto="prepare">Back to the notes</button>
+        <button class="btn btn-primary" data-goto="record">Record the take <svg class="icon"><use href="#i-arrow"></use></svg></button>
+      </footer>
+    </section>
+
+    <!-- RECORD -->
+    <section class="step" data-step="record" id="step-record">
+      <header class="step-head">
+        <p class="eyebrow">Step 04 · Record</p>
+        <h1 class="step-title">One clean take, shot at eye level.</h1>
+        <p class="lede">The recorder runs locally in this browser. Check light, sound, and framing, record a single take, then watch it back before you submit.</p>
+      </header>
+
+      <div class="banner banner-quiet">
+        <svg class="icon"><use href="#i-info"></use></svg>
+        <div>
+          <strong>Local recording, no upload.</strong> Video never leaves this device. Browsers usually record WebM; if the form insists on MP4, convert the file or record from Safari. If the camera will not start, serve this folder at <code>http://localhost:8000</code>.
+        </div>
+      </div>
+
+      <div class="record-layout">
+        <section class="card recorder">
+          <div class="preview-wrap" id="previewWrap">
+            <video id="cameraPreview" muted playsinline autoplay></video>
+            <div class="preview-empty" id="previewEmpty">
+              <svg class="icon"><use href="#i-camera"></use></svg>
+              <strong>Camera is off</strong>
+              <span>Enable it to check your framing and sound.</span>
+            </div>
+            <div class="rec-badge" id="recBadge" hidden><span class="rec-dot"></span>REC <span id="recTimer">0:00</span></div>
+            <div class="countdown" id="countdown" hidden>3</div>
+          </div>
+
+          <div class="device-row">
+            <label class="select">Camera
+              <select id="camSelect"><option value="">Default camera</option></select>
+            </label>
+            <label class="select">Microphone
+              <select id="micSelect"><option value="">Default microphone</option></select>
+            </label>
+            <label class="switch"><input type="checkbox" id="mirrorToggle" checked> Mirror preview</label>
+          </div>
+
+          <div class="mic-meter" id="micMeter" aria-hidden="true">
+            <span>Mic</span>
+            <div class="meter-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+
+          <div class="rec-controls">
+            <button class="btn btn-primary" id="enableCamBtn"><svg class="icon"><use href="#i-video"></use></svg><span>Enable camera</span></button>
+            <button class="btn btn-record" id="recordBtn" disabled><span class="rec-dot"></span><span>Record</span></button>
+            <button class="btn btn-ghost" id="pauseBtn" disabled><svg class="icon"><use href="#i-pause"></use></svg><span>Pause</span></button>
+            <button class="btn btn-ghost" id="stopBtn" disabled><svg class="icon"><use href="#i-stop"></use></svg><span>Stop</span></button>
+          </div>
+          <p class="rec-guide" id="recGuide">Aim for 2:00–3:00. Look into the lens, not at the preview.</p>
+          <p class="rec-error" id="recError" hidden></p>
+        </section>
+
+        <aside class="card side-checklist">
+          <div class="section-label">Before you hit record</div>
+          <ol class="mini-list">
+            <li><strong>Light</strong>Face a window or lamp; avoid a bright screen behind you.</li>
+            <li><strong>Eye level</strong>Raise the laptop or phone so the lens meets your eyes.</li>
+            <li><strong>Sound</strong>Quiet room, phone silenced, fan off. The meter should move when you speak.</li>
+            <li><strong>Framing</strong>Head and shoulders, centred, clean background.</li>
+            <li><strong>Notes</strong>Keep one cue line nearby. Do not read paragraphs.</li>
+          </ol>
+          <p class="mini">The recording is not saved after you reload the page. Download your take before closing the tab.</p>
+        </aside>
+      </div>
+
+      <section class="card take-result" id="takeResult" hidden>
+        <div class="section-label">Your take</div>
+        <div class="take-grid">
+          <video id="takePlayback" controls playsinline></video>
+          <div class="take-side">
+            <p class="take-meta" id="takeMeta"></p>
+            <p class="mini" id="takeVerdict"></p>
+            <div class="take-actions">
+              <a class="btn btn-primary" id="downloadBtn" download><svg class="icon"><use href="#i-download"></use></svg>Download take</a>
+              <button class="btn btn-ghost" id="retakeBtn"><svg class="icon"><use href="#i-reset"></use></svg>Record again</button>
+              <button class="btn btn-quiet" data-goto="review">Review against the brief</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card file-review">
+        <div class="file-head">
+          <div>
+            <div class="section-label">Already recorded elsewhere?</div>
+            <p class="mini">Load a file to check its duration and playback. It stays on this device.</p>
+          </div>
+          <label class="btn btn-ghost file-btn">Choose video
+            <input type="file" id="fileInput" accept="video/*">
+          </label>
+        </div>
+        <div class="file-body" id="fileReview" hidden>
+          <video id="fileVideo" controls playsinline></video>
+          <div>
+            <p class="take-meta" id="fileMeta"></p>
+            <p class="verdict" id="fileVerdict"></p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="step-foot">
+        <button class="btn btn-quiet" data-goto="practice">Back to practice</button>
+        <button class="btn btn-primary" data-goto="review">Review the take <svg class="icon"><use href="#i-arrow"></use></svg></button>
+      </footer>
+    </section>
+
+    <!-- REVIEW -->
+    <section class="step" data-step="review" id="step-review">
+      <header class="step-head">
+        <p class="eyebrow">Step 05 · Review &amp; submit</p>
+        <h1 class="step-title">Check the take against the brief.</h1>
+        <p class="lede">Seven checks from the task guidelines, a short reflection, and a summary you can paste into the submission form. Be honest — the checklist is for you.</p>
+      </header>
+
+      <div class="review-layout">
+        <div class="card checklist-card">
+          <div class="section-label">Self-review checklist</div>
+          <div class="checklist" id="checklist">
+            <label class="check">
+              <input type="checkbox" data-check="length">
+              <span class="check-box"><svg class="icon"><use href="#i-check"></use></svg></span>
+              <span><strong>Length is between 2 and 3 minutes</strong><small>Check the duration in the recorder or your file player.</small></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" data-check="visible">
+              <span class="check-box"><svg class="icon"><use href="#i-check"></use></svg></span>
+              <span><strong>Your face is clearly visible</strong><small>Head and shoulders, adequate light, lens at eye level.</small></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" data-check="audible">
+              <span class="check-box"><svg class="icon"><use href="#i-check"></use></svg></span>
+              <span><strong>Your voice is audible and clear</strong><small>No background noise, consistent volume, no mumbling.</small></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" data-check="structure">
+              <span class="check-box"><svg class="icon"><use href="#i-check"></use></svg></span>
+              <span><strong>The thoughts are structured</strong><small>Introduction, two or three points, example, conclusion.</small></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" data-check="explained">
+              <span class="check-box"><svg class="icon"><use href="#i-check"></use></svg></span>
+              <span><strong>You explained rather than read</strong><small>The delivery sounds natural, not recited from a script.</small></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" data-check="ending">
+              <span class="check-box"><svg class="icon"><use href="#i-check"></use></svg></span>
+              <span><strong>It has a clear beginning and ending</strong><small>The topic is introduced and the takeaway is stated.</small></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" data-check="file">
+              <span class="check-box"><svg class="icon"><use href="#i-check"></use></svg></span>
+              <span><strong>The file opens and plays properly</strong><small>Watch the full take once from start to finish.</small></span>
+            </label>
+          </div>
+          <div class="reflection">
+            <label class="field">
+              <span class="field-label">What to change on the next take</span>
+              <textarea id="reflection" rows="3" placeholder="e.g. Slow the opening, shorten point two, keep the camera at eye level…"></textarea>
+            </label>
+          </div>
+        </div>
+
+        <aside class="review-side">
+          <div class="card score-card">
+            <div class="ring-wrap">
+              <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="ring-bg" cx="50" cy="50" r="42"></circle>
+                <circle class="ring-val" id="reviewRing" cx="50" cy="50" r="42"></circle>
+              </svg>
+              <div class="ring-label"><strong id="reviewPct">0%</strong><span>reviewed</span></div>
+            </div>
+            <p class="mini" id="reviewNote">Nothing checked yet.</p>
+            <label class="field compact">
+              <span class="field-label">Your name (for the file &amp; summary)</span>
+              <input id="candidateName" type="text" placeholder="First and last name">
+            </label>
+            <div class="review-actions">
+              <button class="btn btn-primary" id="copySummary"><svg class="icon"><use href="#i-copy"></use></svg>Copy summary</button>
+              <button class="btn btn-ghost" id="exportMd"><svg class="icon"><use href="#i-download"></use></svg>Plan (.md)</button>
+              <button class="btn btn-ghost" id="printPlan"><svg class="icon"><use href="#i-print"></use></svg>Print plan</button>
+            </div>
+          </div>
+
+          <div class="card submit-note">
+            <div class="section-label">Submission reminder</div>
+            <ul class="plain-list">
+              <li>Upload through the official candidate form — not by email unless they ask.</li>
+              <li>Name the file clearly: name, role, topic.</li>
+              <li>Watch the uploaded file once in the form before confirming.</li>
+              <li>Submit with time to spare; do not risk a last-minute network failure.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <div class="card summary-card">
+        <div class="summary-head">
+          <div>
+            <div class="section-label">Paste-ready summary</div>
+            <p class="mini">A compact record of your topic, argument, and file name.</p>
+          </div>
+          <button class="btn btn-ghost" id="copySummary2"><svg class="icon"><use href="#i-copy"></use></svg>Copy</button>
+        </div>
+        <pre class="summary-text" id="summaryText"></pre>
+      </div>
+
+      <footer class="step-foot">
+        <button class="btn btn-quiet" data-goto="record">Back to the recorder</button>
+        <button class="btn btn-primary" data-goto="brief">Back to the brief <svg class="icon"><use href="#i-arrow"></use></svg></button>
+      </footer>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
